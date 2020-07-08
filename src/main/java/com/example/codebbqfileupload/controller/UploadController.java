@@ -15,7 +15,7 @@ public class UploadController {
     Map<String, Object> result = new HashMap<>();
 
     /// Receive message
-    @RequestMapping("/uploadFile")
+    @RequestMapping("/upload")
 
     public Map<String, Object> upload(@RequestParam("attach") MultipartFile file) throws IOException {
         // File info
@@ -24,7 +24,7 @@ public class UploadController {
 
         // Save to disk
         // file path example 1) Windows c:/, 3) Mac ~/Documents/
-        String filePath = "~/Documents/";
+        String filePath = "E:\\files";
         file.transferTo(new File(filePath + file.getOriginalFilename()));
         result.put("Success", true);
         return result;
